@@ -61,3 +61,44 @@ In minesweeper, the first click is never a bomb. Since the fields are made when 
 ### Checking
 
 This is when you click a tile on the playerField. In theory, this is really simple as you are just showing what is on the screen (this is explained more in [Fog of war](#Fog-of-War)), but in reality, there are a bunch of cases that need to be accounted for. The list of these cases is: game-winning conditions, game-losing conditions, the spot is already selected, it’s a [blank space](#Blank-Tiles), or if it’s just a number. A plain number is the simplest as I just set that spot in the playerField to the realFields equivalent. Lose conditions are when the player clicks a bomb. Win conditions are when the total available tiles are less than or equal to the number of bombs. Spot already selected makes you choose another move. Then blank space is the hardest. For a full explanation of what it is and how I expect to implement it check [blank space](#Blank-Tiles).
+
+
+
+## Day to Day
+
+This is where I go over what I contribute to the project daily.
+
+### 5/9/22
+
+Making minesweeper is a lot harder than I expected, but by following this [implementation guide](https://www.geeksforgeeks.org/cpp-implementation-minesweeper-game/) from the great [Geeks4Geeks](https://www.geeksforgeeks.org/) (aka the best online resource for learning anything programming related) and using my logic to figure out how the game works, I realized that it wasn’t half bad. I could whip up some starting code in half an hour that randomized the mines (although it wasn’t consistent with the amount) and printed both a playerfield and a minefield. I need to get down the input, checking and marking mines and the win and lose cases, and it’s done. So essentially, I have to actually write the game, translate it to dart, add a UI using flutter, then figure out how to port that to apple and android devices. Even better, throw it on the play store and add experienced Flutter, Dart, and Java Developer to my resume. This is my gateway to a MAANG position where I’ll be making 300k a year copy and pasting StackOverflow responses into the company codebase.
+
+  
+
+### 5/10/22
+
+Today I refactored my code into multiple files, so I don’t just have one big code dump in one file. I also decided to create a separate file just for static methods that will be used by the fields, as it would be easy to see all the functions relating to the fields. Aside from the tedious code I wrote, I also realized the fog of war style of the game minesweeper and how it makes it so much easier to make the game play out. I go over this concept in [Fog Of War](#Fog-Of-War).
+
+  
+
+### 5/11/22
+
+Worked on [first click mechanics](#First-Click). I also decided that having a border length of 2 on each side instead of 1 would be more beneficial as the first click could guarantee that it is not a bomb or next to a bomb.
+
+  
+
+### 5/16/22
+
+Finished up the first click mechanics. It was a lot harder to pull off than it was to write. The problem was that I had to check all the surrounding tiles around the click. Then I had to write a separate function to put the bombs taken out back into the game. Then I ran into a bug where the point you would click would be filled with bombs again because of the way I made the function that puts them back into the game. Instead of trying to block off that 3x3 area (the click and adjacent), I instead made it so bombs would only be added to the adjacent tiles of existing bombs.
+
+
+### 5/17/22
+
+Started working on [checking](#Checking) for the playerfield. It was pretty simple as the test cases for checking are like five things. Still need to do one more case, but it involves calling multiple other checks like in [blank tiles](Blank-Tiles).
+
+  
+
+### 5/18/22
+
+Worked on [blank tiles](#Blank-Tiles) today, but I realized It doesn’t even need to be recursive. Instead, I will use the [check function](#Checking) and have a specific case (when the realField equivalent is equal to zero) and have it call another “check” but at all the adjacent positions. This makes sense as if the selected tile is a “0,” meaning it has no bombs around it; it just checks all the adjacent tiles. In the sample code I had in blank tiles, I failed to realize this as I only checked left, right, top, and bottom. The final code I ended up with for blank tiles is on the right. I had to put if statements to make sure I was not returning back to a previously checked tile because I was not in the mood for stack overflow errors. The first if statement is to make sure the calls don’t expand out to the border.
+
+![](https://lh6.googleusercontent.com/8wNeYuw2t3zTBwiwhfTn64pVnwABhW8hWrhlSrubpv0CsIYamqgBtX3LDPRbBjX6yFnHAA7jl3SkfYM5HYsUUP-jF8rFIBdRHWoVCDpzColgSvUtYR6m5Nwe1UMvC7J6N_xys7FTAo9twFuL_w)
