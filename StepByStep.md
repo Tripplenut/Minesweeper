@@ -44,7 +44,7 @@ When you play minesweeper, there are plenty of times where the spot you click on
 
 So if the current position of realField is 0, it makes the playerfield change it to blank and checks the surrounding tiles. When a non 0 is found, it automatically stops that recursive statement but still shows that number. I also need to make the function stop when it is at the border.
 
-Update: Most of this was thought over and explained in [5/18/22](#5/18/22). While the idea is still applied the same way, it is no longer “recursive” in a sense that the function is calling itself, but now blank tiles is a helper function to make [checking](#Checking) recursive.
+Update: Most of this was thought over and explained in [5/18/22](#51822). While the idea is still applied the same way, it is no longer “recursive” in a sense that the function is calling itself, but now blank tiles is a helper function to make [checking](#Checking) recursive.
 
  
 
@@ -134,6 +134,6 @@ I was able to fix the blank tiles after realizing I named one of my variables in
 I implemented what I said on 6/8/22 for checking, and it worked. I turned the tap function of the game into a check function much like [check](#Checking). I don't know why I didn't do this to begin with, but now the blank tiles works as expected. I have completed the majority of the game at this point. I have the win and lose conditions down. The blank tiles and checking functions are down. I really just have to make first-click mechanics, which should be simple, and I also need to port this onto the google play store. I definitely won't log any of that because it was already a pain to convince myself to log this.
 
 
-### Post Project Thoughts
+## Post Project Thoughts
 
 I realized I should have used a vcs, to begin with, to keep track of all my progress to go along with this massive file instead of just committing it all together at once. I also left out a lot of information as I was going, as it felt like even more of a burden to type all this out as I completed the project. I think using GitHub and describing what I was doing with each commit and then pasting the descriptions with the commit numbers would have been better. Well, now I know for the future. When it comes to this project, I learned a lot of valuable lessons. Time management, breaking down problems to the point where kindergarteners can understand them, and most importantly, writing clean, efficient, and commented code. I don't know if what I did is even close to commercial grade or what works as an actual software developer is like I enjoyed, so hopefully, it is.
