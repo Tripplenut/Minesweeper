@@ -44,7 +44,7 @@ When you play minesweeper, there are plenty of times where the spot you click on
 
 So if the current position of realField is 0, it makes the playerfield change it to blank and checks the surrounding tiles. When a non 0 is found, it automatically stops that recursive statement but still shows that number. I also need to make the function stop when it is at the border.
 
-Update: Most of this was thought over and explained in [5/18/22](add-later). While the idea is still applied the same way, it is no longer “recursive” in a sense that the function is calling itself, but now blank tiles is a helper function to make [checking](#Checking) recursive.
+Update: Most of this was thought over and explained in [5/18/22](#5/18/22). While the idea is still applied the same way, it is no longer “recursive” in a sense that the function is calling itself, but now blank tiles is a helper function to make [checking](#Checking) recursive.
 
  
 
@@ -102,3 +102,38 @@ Started working on [checking](#Checking) for the playerfield. It was pretty simp
 Worked on [blank tiles](#Blank-Tiles) today, but I realized It doesn’t even need to be recursive. Instead, I will use the [check function](#Checking) and have a specific case (when the realField equivalent is equal to zero) and have it call another “check” but at all the adjacent positions. This makes sense as if the selected tile is a “0,” meaning it has no bombs around it; it just checks all the adjacent tiles. In the sample code I had in blank tiles, I failed to realize this as I only checked left, right, top, and bottom. The final code I ended up with for blank tiles is on the right. I had to put if statements to make sure I was not returning back to a previously checked tile because I was not in the mood for stack overflow errors. The first if statement is to make sure the calls don’t expand out to the border.
 
 ![](https://lh6.googleusercontent.com/8wNeYuw2t3zTBwiwhfTn64pVnwABhW8hWrhlSrubpv0CsIYamqgBtX3LDPRbBjX6yFnHAA7jl3SkfYM5HYsUUP-jF8rFIBdRHWoVCDpzColgSvUtYR6m5Nwe1UMvC7J6N_xys7FTAo9twFuL_w)
+
+
+### 5/19/22
+
+I spent my time bug fixing and implementing yesterday's ideas. I think I am done doing all I can in java, so tomorrow, I will begin developing the app using [flutter](#Flutter---Docs) and [dart](#Dart---Docs). Learning how to make the game look nice using flutter won't be too much of a hassle, but I am just scared about implementing the tiles and making them all functioning buttons. I believe that once I get past that point, it will be smooth sailing for the rest of the project.
+
+
+### 5/25/22
+
+I spent the 5/20-5/23 setting up flutter for three days cause I can't read docs. I spent 5/24 mentally preparing for the pain I had to endure today. So to begin, I watched some videos on the [official flutter youtube](https://www.youtube.com/c/flutterdev). It was informative since I had no clue what a widget is or how even to get the app running. Found this sick online tutorial on grids so I could make the board. Using these two resources, I was able to make the app title bar and a grid that wasn't the correct size. Yeah, I know, simply a programming prodigy.
+
+
+### 6/2/22
+
+For the past week, I haven't touched a dart, let alone a compiler. I was getting back into the project as I wanted it to be done by next Friday. Trying to understand the code I have already written is a pain. The grid is still the incorrect size, and I have no idea how to fix it; praying it will fix itself, but other than that, I just "translated" my java code over to dart for the game initialization. I don't even need a playerField grid as it is just where the person clicks, but I needed to add a list booleans to keep track of open squares and another list for what's flagged and what isn't.
+
+
+### 6/3/22 - 6/7/22
+
+I forgot how painful it is to update the docs on this process. I'm starting to see why the first docs of a project are always super in-depth, but by the time you get to the newer features, they end up being a sentence long that no one but the person who wrote the code could understand. Anyways I made a lot of progress. I was able to get images to appear so when you click a tile, it can be blank, show numbers 1-8, or be flagged or untouched. It is also linked to the realField along with two arrays of opened and flagged squares. I'm running into a problem with the [blank tiles](#Blank-Tiles) which is a pain.
+
+
+### 6/8/22 - 6/9/22
+
+I was able to fix the blank tiles after realizing I named one of my variables incorrectly. It doesn't completely work as it either opens all the 0 tiles only or opens every single tile that isn't a bomb (made it easy to check to win conditions :3 ). I've been thinking of how to fix that, and I realized the best way to get it done is by making the tile click a separate function as I did in the java version.
+
+
+### 6/12/22
+
+I implemented what I said on 6/8/22 for checking, and it worked. I turned the tap function of the game into a check function much like [check](#Checking). I don't know why I didn't do this to begin with, but now the blank tiles works as expected. I have completed the majority of the game at this point. I have the win and lose conditions down. The blank tiles and checking functions are down. I really just have to make first-click mechanics, which should be simple, and I also need to port this onto the google play store. I definitely won't log any of that because it was already a pain to convince myself to log this.
+
+
+### Post Project Thoughts
+
+I realized I should have used a vcs, to begin with, to keep track of all my progress to go along with this massive file instead of just committing it all together at once. I also left out a lot of information as I was going, as it felt like even more of a burden to type all this out as I completed the project. I think using GitHub and describing what I was doing with each commit and then pasting the descriptions with the commit numbers would have been better. Well, now I know for the future. When it comes to this project, I learned a lot of valuable lessons. Time management, breaking down problems to the point where kindergarteners can understand them, and most importantly, writing clean, efficient, and commented code. I don't know if what I did is even close to commercial grade or what works as an actual software developer is like I enjoyed, so hopefully, it is.
