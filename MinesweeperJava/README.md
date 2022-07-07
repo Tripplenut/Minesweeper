@@ -1,0 +1,3 @@
+# Minesweeper Java
+
+This is where the java portion of this project is stored. Most of the game's documentation, logic, and overall gameplay makes sense here. It's an 80-90% finished product, but some features were left out because I didn't feel the need to include them here, or it just wasn't possible. Some features like first click mechanics are better on this version since the playerfield works differently than the flutter minesweeper. Since I didn't make a menu, you can't play it in the console, but you can create your own if you're that intrigued. I may make one in the future if I get bored and remember.
