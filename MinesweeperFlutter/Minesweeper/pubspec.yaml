@@ -1,0 +1,36 @@
+name: Minesweeper
+description: Microsoft Minesweeper by Anthony Fabius
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.1 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - images/0.png
+    - images/1.png
+    - images/2.png
+    - images/3.png
+    - images/4.png
+    - images/5.png
+    - images/6.png
+    - images/7.png
+    - images/8.png
+    - images/bomb.png
+    - images/facingdown.png
+    - images/flagged.png
